@@ -21,7 +21,6 @@ public class PersonController {
         this.personService = personService;
     }
 
-    // Страница просмотра всех лиц
     @GetMapping("/persons")
     public String persons(Model model) {
         List<Person> persons = personService.findAll();
@@ -29,13 +28,11 @@ public class PersonController {
         return "persons";
     }
 
-    // Страница формы ввода нового лица
     @GetMapping("/persons/new")
     public String newPersonForm() {
         return "person_form";
     }
 
-    // Обработка формы — создание нового лица
     @PostMapping("/persons")
     public String createPerson(@RequestParam String type,
                                @RequestParam String name,
