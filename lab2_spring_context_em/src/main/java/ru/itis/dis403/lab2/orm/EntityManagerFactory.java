@@ -70,8 +70,6 @@ public class EntityManagerFactory {
 
             for (Class<?> cls : entities) {
                 String tableName = cls.getSimpleName().toLowerCase();
-
-                // есть ли таблица с таким именем
                 ResultSet tables = meta.getTables(null, null, tableName, null);
                 if (tables.next()) {
                     System.out.println("Таблица '" + tableName + "' существует");
@@ -80,14 +78,12 @@ public class EntityManagerFactory {
                     continue;
                 }
 
-                // вытаскиваю список всех ее колонок из бд
                 Set<String> dbColumns = new HashSet<>();
                 ResultSet cols = meta.getColumns(null, null, tableName, null);
                 while (cols.next()) {
                     dbColumns.add(cols.getString("COLUMN_NAME").toLowerCase());
                 }
 
-                // для каждого поля класса проверяю есть ли нужная колонка
                 for (Field field : cls.getDeclaredFields()) {
                     String expectedCol = null;
                     if (field.isAnnotationPresent(Id.class)) {

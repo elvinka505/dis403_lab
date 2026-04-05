@@ -156,7 +156,6 @@ public class EntityManagerImpl implements EntityManager, Closeable {
         }
     }
 
-    // создаем объект из строки ResultSet
     private <T> T mapRow(Class<T> cls, ResultSet rs) throws Exception {
         T obj = cls.getDeclaredConstructor().newInstance();
         for (Field field : cls.getDeclaredFields()) {
@@ -164,7 +163,6 @@ public class EntityManagerImpl implements EntityManager, Closeable {
             if (field.isAnnotationPresent(Id.class) || field.isAnnotationPresent(Column.class)) {
                 field.set(obj, rs.getObject(field.getName()));
             } else if (field.isAnnotationPresent(ManyToOne.class)) {
-                // загружаем свзяанный объект по id
                 Object relatedId = rs.getObject(field.getName() + "_id");
                 if (relatedId != null) {
                     Object related = find(field.getType(), relatedId);

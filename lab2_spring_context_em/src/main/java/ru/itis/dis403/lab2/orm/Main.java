@@ -13,7 +13,7 @@ public class Main {
 
         Country country = new Country();
         country.setName("России");
-        em.save(country);  // INSERT => id присвоится автоматически
+        em.save(country);
 
         City city = new City();
         city.setName("Казань");

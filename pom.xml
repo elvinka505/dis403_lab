@@ -13,6 +13,8 @@
         <module>lab2_spring_context_em</module>
         <module>lab3_jpa</module>
         <module>lab4_spring_jpa</module>
+        <module>lab5_spring_security</module>
+        <module>lab6_spring_jwt</module>
     </modules>
 
     <dependencies>
@@ -32,11 +34,12 @@
             <artifactId>HikariCP</artifactId>
             <version>6.2.1</version>
         </dependency>
+
     </dependencies>
 
     <properties>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
