@@ -22,7 +22,7 @@ public class EntityManagerImpl implements EntityManager, Closeable {
         try {
             Class<?> cls = entity.getClass();
             String tableName = cls.getSimpleName().toLowerCase();
-
+            //получаем поле с id
             Field idField = getIdField(cls);
             idField.setAccessible(true);
             Object idValue = idField.get(entity);
@@ -39,6 +39,7 @@ public class EntityManagerImpl implements EntityManager, Closeable {
                         values.add(field.get(entity));
                     } else if (field.isAnnotationPresent(ManyToOne.class)) {
                         colNames.add(field.getName() + "_id");
+                        //id связанного объекта
                         Object related = field.get(entity);
                         if (related != null) {
                             Field relId = getIdField(related.getClass());

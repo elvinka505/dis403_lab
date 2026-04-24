@@ -135,6 +135,7 @@
         document.getElementById("edit_section").style.display = "block";
         document.getElementById("save_status").innerHTML = "";
 
+        // оба id в скрытое поле
         document.getElementById("edit_id").value = data.id;
         document.getElementById("edit_person_id").value = data.personId;
         document.getElementById("edit_name").value = data.name || '';

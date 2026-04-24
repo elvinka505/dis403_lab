@@ -17,6 +17,7 @@ public class BookingService {
     }
 
     public BookingDto getBookingById(Long bookingId, User user) {
+        // id и hotel_id
         Booking b = bookingRepository.findByIdAndHotelId(bookingId, user.getHotel().getId());
 
         return BookingDto.builder()
