@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+        <module>hw_http_nats</module>
         <module>lab1_embedded_tomcat</module>
         <module>lab2_spring_context_em</module>
         <module>lab3_jpa</module>
@@ -17,7 +18,8 @@
         <module>lab6_spring_jwt</module>
         <module>lab7_docker_http_client</module>
         <module>lab8_nats</module>
-        <module>lab9_inner_service</module>
+        <module>hw_http_nats</module>
+        <module>lab9_service</module>
     </modules>
 
     <dependencies>
